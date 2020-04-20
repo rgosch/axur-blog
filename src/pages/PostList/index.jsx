@@ -1,25 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Post } from 'components/Post';
 import { Wrapper } from 'visual/styles/wrapper';
+import { getPosts } from 'logics/requests/post';
+import { getAuthors } from 'logics/requests/author';
 
 import { Settings } from './Settings';
 import { Container } from './styles';
 
-export const PostList = () => (
-  <Container>
-    <Wrapper>
-      <Settings />
-      <Post
-        title="AssCo has revamped the theory of versioning"
-        author={{ name: 'Nicholas Jordan', id: 1 }}
-        date={1492004832000}
-        body={
-          'We will mesh the buzzword "strategic". Our feature set is unparalleled, but our subscriber-defined CAE and non-complex configuration is invariably considered a remarkable achievement. What does the commonly-used commonly-used term "strategic" really mean? Think ultra-long-term. The reporting factor can be summed up in one word: B2B2C. Think clicks-and-mortar. We believe we know that it is better to enhance compellingly than to monetize dynamically. Think real-time, backward-compatible. The ability to synergize macro-holistically leads to the capability to envisioneer holistically. The implementation factor can be summed up in one word: six-sigma.'
-        }
-      />
-    </Wrapper>
-  </Container>
-);
+export const PostList = () => {
+  const [posts, setPosts] = useState([]);
+  const [authors, setAuthors] = useState([]);
+
+  const updateData = async () => {
+    const { data: authorsData } = await getAuthors();
+    const { data: postsData } = await getPosts();
+
+    setAuthors(authorsData);
+    setPosts(postsData);
+  };
+
+  const findAuthor = (id) => {
+    return authors.find((author) => author.id === id);
+  };
+
+  useEffect(() => {
+    updateData();
+  }, []);
+
+  return (
+    <Container>
+      <Wrapper>
+        <Settings authors={authors} />
+        {posts.map(({ title, body, metadata: { authorId, publishedAt } }) => (
+          <Post
+            key={`post-${title}-${publishedAt}`}
+            title={title}
+            author={findAuthor(authorId)}
+            date={publishedAt}
+            body={body}
+          />
+        ))}
+      </Wrapper>
+    </Container>
+  );
+};
 
 export default PostList;
