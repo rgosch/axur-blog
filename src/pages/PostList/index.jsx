@@ -8,6 +8,8 @@ import { getAuthors } from 'logics/requests/author';
 import { TEXTS } from 'logics/texts';
 
 import { SettingsContext } from 'contexts/Settings';
+import { ordinatePosts } from 'logics/post-ordination';
+import { filterByAuthor } from 'logics/post-filter';
 import { Settings } from './Settings';
 import { Container } from './styles';
 
@@ -36,7 +38,7 @@ export const PostList = () => {
   }, []);
 
   const {
-    settings: { viewType },
+    settings: { viewType, order, author },
   } = useContext(SettingsContext);
 
   return (
@@ -45,7 +47,10 @@ export const PostList = () => {
         <Settings authors={authors} />
         {loading && <Loader area-label={TEXTS.loader} />}
         {!loading &&
-          posts.map(({ title, body, metadata: { authorId, publishedAt } }) => (
+          filterByAuthor(
+            ordinatePosts(posts, order),
+            author,
+          ).map(({ title, body, metadata: { authorId, publishedAt } }) => (
             <Post
               key={`post-${title}-${publishedAt}`}
               title={title}
