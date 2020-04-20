@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import { Post } from 'components/Post';
 import { Wrapper } from 'visual/styles/wrapper';
 import { getPosts } from 'logics/requests/post';
 import { getAuthors } from 'logics/requests/author';
 
+import { SettingsContext } from 'contexts/Settings';
 import { Settings } from './Settings';
 import { Container } from './styles';
 
@@ -28,6 +29,10 @@ export const PostList = () => {
     updateData();
   }, []);
 
+  const {
+    settings: { viewType },
+  } = useContext(SettingsContext);
+
   return (
     <Container>
       <Wrapper>
@@ -39,6 +44,7 @@ export const PostList = () => {
             author={findAuthor(authorId)}
             date={publishedAt}
             body={body}
+            small={viewType === 'less'}
           />
         ))}
       </Wrapper>

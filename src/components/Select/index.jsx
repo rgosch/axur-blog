@@ -11,7 +11,8 @@ import {
 } from './styles';
 
 export const Select = ({ label, id, options, selected, onChange }) => {
-  const current = options.find((item) => item.value === selected) || {};
+  const current =
+    options.find((item) => `${item.value}` === `${selected}`) || {};
 
   return (
     <Container>
@@ -20,7 +21,11 @@ export const Select = ({ label, id, options, selected, onChange }) => {
         <FakeSelectText>{current.label}</FakeSelectText>
         <Arrow />
       </FakeSelect>
-      <SelectNative id={`select-${id}`} value={selected} onChange={onChange}>
+      <SelectNative
+        id={`select-${id}`}
+        value={selected}
+        onChange={(e) => onChange(e.target.value)}
+      >
         {!!options &&
           options.map(({ label: currentLabel, value }) => (
             <option key={value} value={value}>
@@ -38,10 +43,10 @@ Select.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
-      value: PropTypes.string,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     }),
   ),
-  selected: PropTypes.string,
+  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func.isRequired,
 };
 

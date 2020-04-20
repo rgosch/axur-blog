@@ -1,45 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { format } from 'logics/date';
+import { Small } from './Small';
+import { Large } from './Large';
 
-import authorIcon from 'assets/img/user.svg';
-import dateIcon from 'assets/img/calendar.svg';
-
-import {
-  Container,
-  Header,
-  Title,
-  Metadata,
-  Info,
-  Icon,
-  InfoText,
-  Body,
-  BodyContent,
-} from './styles';
-
-export const Post = ({ title, author, date, body }) => {
-  const { name } = author;
-
+export const Post = ({ title, author, date, body, small }) => {
   return (
-    <Container>
-      <Header>
-        <Title>{title}</Title>
-        <Metadata>
-          <Info>
-            <Icon src={authorIcon} aria-hidden />
-            <InfoText>{name}</InfoText>
-          </Info>
-          <Info>
-            <Icon src={dateIcon} aria-hidden />
-            <InfoText>{format(date)}</InfoText>
-          </Info>
-        </Metadata>
-      </Header>
-      <Body>
-        <BodyContent>{body}</BodyContent>
-      </Body>
-    </Container>
+    <>
+      {small && <Small title={title} date={date} />}
+      {!small && (
+        <Large title={title} author={author} date={date} body={body} />
+      )}
+    </>
   );
 };
 
@@ -50,6 +22,11 @@ Post.propTypes = {
   }).isRequired,
   date: PropTypes.number.isRequired,
   body: PropTypes.string.isRequired,
+  small: PropTypes.bool,
+};
+
+Post.defaultProps = {
+  small: false,
 };
 
 export default Post;

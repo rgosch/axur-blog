@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { Select } from 'components/Select';
 
+import { SettingsContext } from 'contexts/Settings';
 import { Container, SelectWrapper } from './styles';
 
 export const Settings = ({ authors }) => {
@@ -20,6 +21,22 @@ export const Settings = ({ authors }) => {
     { label: 'More information', value: 'more' },
     { label: 'Less information', value: 'less' },
   ];
+
+  const { settings, setSettings } = useContext(SettingsContext);
+  const { order, author, viewType } = settings;
+
+  const setOrder = (value) => {
+    setSettings({ ...settings, order: value });
+  };
+
+  const setAuthor = (value) => {
+    setSettings({ ...settings, author: value });
+  };
+
+  const setViewType = (value) => {
+    setSettings({ ...settings, viewType: value });
+  };
+
   return (
     <Container>
       <SelectWrapper>
@@ -27,9 +44,9 @@ export const Settings = ({ authors }) => {
           id="order"
           label="Order"
           options={orderOptions}
-          selected="asc"
+          selected={order}
           defaultValue="asc"
-          onChange={() => {}}
+          onChange={setOrder}
         />
       </SelectWrapper>
       <SelectWrapper>
@@ -37,16 +54,17 @@ export const Settings = ({ authors }) => {
           id="author"
           label="Author"
           options={authorsOptions}
-          onChange={() => {}}
+          selected={author}
+          onChange={setAuthor}
         />
       </SelectWrapper>
       <SelectWrapper>
         <Select
           id="view-type"
           options={viewTypeOptions}
-          selected="more"
+          selected={viewType}
           label="View type"
-          onChange={() => {}}
+          onChange={setViewType}
         />
       </SelectWrapper>
     </Container>
