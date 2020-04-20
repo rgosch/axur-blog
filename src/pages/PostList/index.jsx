@@ -1,7 +1,13 @@
 import React from 'react';
 
+import { Settings } from './Settings';
+
 import { Container } from './styles';
 
-const PostList = () => <Container />;
+export const PostList = () => (
+  <Container>
+    <Settings />
+  </Container>
+);
 
 export default PostList;

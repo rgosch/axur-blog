@@ -4,11 +4,11 @@ import { TEXTS } from 'logics/texts';
 
 import logo from 'assets/img/logo.svg';
 
-import { Container } from './styles';
+import { Container, Logo } from './styles';
 
 export const Header = () => (
   <Container>
-    <img src={logo} alt={TEXTS.header.logoAlt} />
+    <Logo src={logo} alt={TEXTS.header.logoAlt} />
   </Container>
 );
 
