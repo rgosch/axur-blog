@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { format } from 'logics/date';
+import { TEXTS } from 'logics/texts';
 
 import authorIcon from 'assets/img/user.svg';
 import dateIcon from 'assets/img/calendar.svg';
@@ -28,11 +29,11 @@ export const Large = ({ title, author, date, body }) => {
         <Metadata>
           <Info>
             <Icon src={authorIcon} aria-hidden />
-            <InfoText>{name}</InfoText>
+            <InfoText title={TEXTS.post.author}>{name}</InfoText>
           </Info>
           <Info>
             <Icon src={dateIcon} aria-hidden />
-            <InfoText>{format(date)}</InfoText>
+            <InfoText title={TEXTS.post.date}>{format(date)}</InfoText>
           </Info>
         </Metadata>
       </Header>

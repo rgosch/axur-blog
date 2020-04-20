@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 
 import { Post } from 'components/Post';
+import { Loader } from 'components/Loader';
 import { Wrapper } from 'visual/styles/wrapper';
 import { getPosts } from 'logics/requests/post';
 import { getAuthors } from 'logics/requests/author';
+import { TEXTS } from 'logics/texts';
 
 import { SettingsContext } from 'contexts/Settings';
 import { Settings } from './Settings';
@@ -12,13 +14,17 @@ import { Container } from './styles';
 export const PostList = () => {
   const [posts, setPosts] = useState([]);
   const [authors, setAuthors] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const updateData = async () => {
+    setLoading(true);
     const { data: authorsData } = await getAuthors();
     const { data: postsData } = await getPosts();
 
     setAuthors(authorsData);
     setPosts(postsData);
+
+    setLoading(false);
   };
 
   const findAuthor = (id) => {
@@ -37,16 +43,18 @@ export const PostList = () => {
     <Container>
       <Wrapper>
         <Settings authors={authors} />
-        {posts.map(({ title, body, metadata: { authorId, publishedAt } }) => (
-          <Post
-            key={`post-${title}-${publishedAt}`}
-            title={title}
-            author={findAuthor(authorId)}
-            date={publishedAt}
-            body={body}
-            small={viewType === 'less'}
-          />
-        ))}
+        {loading && <Loader area-label={TEXTS.loader} />}
+        {!loading &&
+          posts.map(({ title, body, metadata: { authorId, publishedAt } }) => (
+            <Post
+              key={`post-${title}-${publishedAt}`}
+              title={title}
+              author={findAuthor(authorId)}
+              date={publishedAt}
+              body={body}
+              small={viewType === 'less'}
+            />
+          ))}
       </Wrapper>
     </Container>
   );

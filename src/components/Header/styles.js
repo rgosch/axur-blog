@@ -12,3 +12,9 @@ export const Container = styled.header`
 `;
 
 export const Logo = styled.img``;
+
+export const Title = styled.h1`
+  position: absolute;
+  left: -999pc;
+  top: -999pc;
+`;
