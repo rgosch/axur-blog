@@ -7,6 +7,7 @@ export const Container = styled.footer`
   background-color: ${COLORS.greyLightness};
   align-items: center;
   display: flex;
+  margin-top: 55px;
 `;
 
 export const Texts = styled.div``;
@@ -26,4 +27,8 @@ export const Developer = styled.a`
   font-size: 14px;
   line-height: 13px;
   color: ${COLORS.black};
+
+  &:not(:hover) {
+    text-decoration: none;
+  }
 `;
