@@ -26,11 +26,9 @@ export const FakeSelect = styled.div`
 `;
 
 export const FakeSelectText = styled.span`
-  font-family: 'Gotham', serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 12px;
-  padding-top: 7px;
   color: ${COLORS.greyLight};
 `;
 
