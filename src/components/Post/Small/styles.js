@@ -38,6 +38,7 @@ export const Title = styled.h2`
 export const Metadata = styled.div`
   display: flex;
   margin-top: 10px;
+  justify-content: flex-end;
 `;
 
 export const Info = styled.div`
