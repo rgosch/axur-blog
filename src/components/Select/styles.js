@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import COLORS from 'visual/colors';
+import { COLORS } from 'visual/constants';
 import { FormLabel } from 'visual/styles/form-label';
 
 import arrow from 'assets/img/arrow-down.svg';

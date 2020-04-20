@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { COLORS } from 'visual/colors';
+import { COLORS } from 'visual/constants';
 
 export const Container = styled.header`
   background-color: ${COLORS.greyLightness};

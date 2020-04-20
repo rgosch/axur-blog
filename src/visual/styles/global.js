@@ -1,9 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
-import { Gotham, OpenSans } from 'visual/fonts';
+import { OpenSans } from 'visual/fonts';
 
 export const GlobalStyle = createGlobalStyle`
-  ${Gotham}
   ${OpenSans}
 
   body, html {
@@ -14,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gotham', serif;
+    font-family: 'Open Sans', serif;
     font-weight: normal;
   }
 

@@ -7,6 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   max-width: 610px;
   margin: 0 auto;
+  margin-bottom: 55px;
 `;
 
 export const SelectWrapper = styled.div`
