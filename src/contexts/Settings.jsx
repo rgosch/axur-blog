@@ -1,21 +1,38 @@
 import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
-export const SettingsInitiaState = {
-  order: 'desc',
-  author: '',
-  viewType: 'more',
+const storageKey = 'SETTINGS';
+
+const getSettingsByStorage = () => {
+  return JSON.parse(localStorage.getItem(storageKey));
 };
 
-export const SettingsContext = createContext({
-  settings: SettingsInitiaState,
-});
+const setSettingsInStorage = (value) => {
+  window.localStorage.setItem(storageKey, JSON.stringify(value));
+};
+
+// Author is the unique not used by storage
+export const settingsInitiaState = {
+  order: 'desc',
+  viewType: 'more',
+  ...getSettingsByStorage(),
+  author: '',
+};
+
+export const SettingsContext = createContext({});
 
 export const SettingsProvider = ({ children }) => {
-  const [settings, setSettings] = useState(SettingsInitiaState);
+  const [settings, setSettings] = useState(settingsInitiaState);
+
+  const setSettingsCallback = (value) => {
+    setSettingsInStorage(value);
+    setSettings(value);
+  };
 
   return (
-    <SettingsContext.Provider value={{ setSettings, settings }}>
+    <SettingsContext.Provider
+      value={{ setSettings: setSettingsCallback, settings }}
+    >
       {children}
     </SettingsContext.Provider>
   );
