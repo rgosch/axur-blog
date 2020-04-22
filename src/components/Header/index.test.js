@@ -8,7 +8,7 @@ import { Title, Logo } from './styles';
 describe('[Component] Header', () => {
   let wrapper;
 
-  it('Should renders without crashing', () => {
+  beforeEach(() => {
     wrapper = shallow(<Header />);
   });
 
