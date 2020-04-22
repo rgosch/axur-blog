@@ -38,3 +38,17 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Directory tree
+```bash
+src
+├── assets # All static files
+│   └── img
+├── components # All global components
+├── contexts
+├── logic # Any snipped used in JS
+│   └── requests # The requests separated by endpoint
+├── pages
+└── visual # Any file related of app style
+    └── styles # The local of global Styled Components
+```
