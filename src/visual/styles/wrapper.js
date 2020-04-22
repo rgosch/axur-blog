@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import { mobile, tablet, desktop } from "visual/medias";
+import { mobile, tablet, desktop } from 'visual/medias';
 
 export const Wrapper = styled.div`
   margin-left: auto;
