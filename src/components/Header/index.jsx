@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TEXTS } from 'logics/texts';
+import { TEXTS } from 'logic/texts';
 
 import logo from 'assets/img/logo.svg';
 

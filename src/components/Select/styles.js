@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { COLORS } from 'visual/constants';
-import { FormLabel } from 'visual/styles/form-label';
+import { FormLabel } from 'visual/styles/FormLabel';
 
 import arrow from 'assets/img/arrow-down.svg';
 

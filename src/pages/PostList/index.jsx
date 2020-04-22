@@ -2,14 +2,14 @@ import React, { useState, useEffect, useContext } from 'react';
 
 import { Post } from 'components/Post';
 import { Loader } from 'components/Loader';
-import { Wrapper } from 'visual/styles/wrapper';
-import { getPosts } from 'logics/requests/post';
-import { getAuthors } from 'logics/requests/author';
-import { TEXTS } from 'logics/texts';
+import { Wrapper } from 'visual/styles/Wrapper';
+import { getPosts } from 'logic/requests/post';
+import { getAuthors } from 'logic/requests/author';
+import { ordinatePosts } from 'logic/post-ordination';
+import { filterByAuthor } from 'logic/post-filter';
+import { TEXTS } from 'logic/texts';
 
 import { SettingsContext } from 'contexts/Settings';
-import { ordinatePosts } from 'logics/post-ordination';
-import { filterByAuthor } from 'logics/post-filter';
 import { Settings } from './Settings';
 import { Container } from './styles';
 

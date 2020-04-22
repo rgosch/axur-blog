@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Wrapper } from 'visual/styles/wrapper';
+import { Wrapper } from 'visual/styles/Wrapper';
 import { Container, Texts, Brand, Developer } from './styles';
 
 export const Footer = () => (

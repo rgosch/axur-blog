@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { format } from 'logics/date';
+import { format } from 'logic/date';
 
 import { Container, Header, Title, Metadata, Info, InfoText } from './styles';
 

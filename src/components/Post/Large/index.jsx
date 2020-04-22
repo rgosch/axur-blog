@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { format } from 'logics/date';
-import { TEXTS } from 'logics/texts';
+import { format } from 'logic/date';
+import { TEXTS } from 'logic/texts';
 
 import authorIcon from 'assets/img/user.svg';
 import dateIcon from 'assets/img/calendar.svg';
