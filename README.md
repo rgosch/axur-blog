@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://breaking-bad.gosch.io/">
-    <img alt="Breaking Bad" src="./src/assets/img/logo.svg" width="200" />
+  <a href="https://axur-blog.gosch.io/">
+    <img alt="Axur Blog" src="./src/assets/img/logo.svg" width="200" />
   </a>
 </p>
 <h1 align="center">
