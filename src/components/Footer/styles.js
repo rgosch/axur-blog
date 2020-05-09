@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+
 import { COLORS } from 'visual/constants';
+import { pxToRem } from 'logic/pxToRem';
 
 export const Container = styled.footer`
   width: 100%;
-  height: 80px;
+  height: ${pxToRem(80)};
   background-color: ${COLORS.greyLightness};
   align-items: center;
   display: flex;
@@ -15,8 +17,8 @@ export const Texts = styled.div``;
 export const Brand = styled.span`
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
-  line-height: 13px;
+  font-size: ${pxToRem(14)};
+  line-height: ${pxToRem(13)};
   color: ${COLORS.greyDarkness};
   display: block;
 `;
@@ -24,8 +26,8 @@ export const Brand = styled.span`
 export const Developer = styled.a`
   font-style: normal;
   font-weight: bold;
-  font-size: 14px;
-  line-height: 13px;
+  font-size: ${pxToRem(14)};
+  line-height: ${pxToRem(13)};
   color: ${COLORS.black};
 
   &:not(:hover) {

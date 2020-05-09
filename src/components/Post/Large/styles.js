@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { COLORS } from 'visual/constants';
 import { tabletDesktop, mobile } from 'visual/medias';
+import { pxToRem } from 'logic/pxToRem';
 
 export const Container = styled.article`
   padding-bottom: 40px;
@@ -28,13 +29,13 @@ export const Title = styled.h2`
   color: ${COLORS.greyDarkness};
 
   ${tabletDesktop(css`
-    font-size: 32px;
-    line-height: 40px;
+    font-size: ${pxToRem(32)};
+    line-height: ${pxToRem(40)};
   `)}
 
   ${mobile(css`
-    font-size: 28px;
-    line-height: 30px;
+    font-size: ${pxToRem(28)};
+    line-height: ${pxToRem(30)};
   `)}
 `;
 
@@ -58,8 +59,8 @@ export const Icon = styled.img``;
 export const InfoText = styled.span`
   font-style: normal;
   font-weight: bold;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: ${pxToRem(12)};
+  line-height: ${pxToRem(16)};
   color: ${COLORS.greyLight};
   margin-left: 7px;
 `;
@@ -72,7 +73,7 @@ export const Body = styled.main`
 export const BodyContent = styled.p`
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 28px;
+  font-size: ${pxToRem(16)};
+  line-height: ${pxToRem(28)};
   color: ${COLORS.black};
 `;

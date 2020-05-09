@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { COLORS } from 'visual/constants';
 import { tabletDesktop, mobile } from 'visual/medias';
+import { pxToRem } from 'logic/pxToRem';
 
 export const Container = styled.article`
   padding-bottom: 10px;
@@ -25,13 +26,13 @@ export const Title = styled.h2`
   color: ${COLORS.greyDarkness};
 
   ${tabletDesktop(css`
-    font-size: 22px;
-    line-height: 40px;
+    font-size: ${pxToRem(22)};
+    line-height: ${pxToRem(40)};
   `)}
 
   ${mobile(css`
-    font-size: 18px;
-    line-height: 20px;
+    font-size: ${pxToRem(18)};
+    line-height: ${pxToRem(20)};
   `)}
 `;
 
@@ -49,7 +50,7 @@ export const Info = styled.div`
 export const InfoText = styled.span`
   font-style: normal;
   font-weight: bold;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: ${pxToRem(12)};
+  line-height: ${pxToRem(16)};
   color: ${COLORS.greyLight};
 `;
