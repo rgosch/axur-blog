@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { COLORS } from 'visual/constants';
 import { FormLabel } from 'visual/styles/FormLabel';
+import { pxToRem } from 'logic/pxToRem';
 
 import arrow from 'assets/img/arrow-down.svg';
 
@@ -15,12 +16,12 @@ export const Label = styled(FormLabel)`
 `;
 
 export const FakeSelect = styled.div`
-  height: 35px;
+  height: ${pxToRem(35)};
   border: 2px solid ${COLORS.greyLight};
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 0 9px;
+  padding: 0 ${pxToRem(9)};
   border-radius: 5px;
   position: relative;
 `;
@@ -28,7 +29,7 @@ export const FakeSelect = styled.div`
 export const FakeSelectText = styled.span`
   font-style: normal;
   font-weight: bold;
-  font-size: 12px;
+  font-size: ${pxToRem(12)};
   color: ${COLORS.greyLight};
 `;
 
@@ -42,7 +43,7 @@ export const Arrow = styled.div`
 
 export const SelectNative = styled.select`
   position: absolute;
-  height: 55px;
+  height: 100%;
   width: 100%;
   top: 0;
   opacity: 0;
